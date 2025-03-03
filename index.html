@@ -22,34 +22,6 @@
             background: url('Miche Fest.gif') center/cover no-repeat;
         }
         
-        @import url('https://fonts.googleapis.com/css2?family=Wendy+One&display=swap');
-
-        .text-glitch {
-          font-family: 'Wendy One', sans-serif;
-          font-size: 22px;
-          white-space: nowrap;
-          overflow: hidden;
-          line-height: 100%;
-          color: #F7CA05;
-          text-shadow: 0 10px 7px rgba(0,0,0,0.4), 0 -10px 1px #fff;
-          letter-spacing: -3px;
-          text-align: center;
-
-        }
-
-        .text-glitch:hover {
-          animation: glitch .3s linear infinite;
-          cursor: pointer;
-        }
-
-        @keyframes glitch {
-          0% { transform: translate(0); }
-          20% { transform: translate(-2px, 2px); }
-          40% { transform: translate(-2px, -2px); }
-          60% { transform: translate(2px, 2px); }
-          80% { transform: translate(2px, -2px); }
-          100% { transform: translate(0); }
-}
     </style>
 </head>
 <body>
@@ -86,7 +58,7 @@
 
     <section class="relative h-screen flex flex-col justify-center items-center text-center bg-gif mt-20">
     	<img src="Miche Fest.png" alt="Elgin Miche Fest Logo" style="margin-bottom: 0; width: auto; height: auto;"/>
-        <p class="text-glitch animate-fade">22 de Junio 2025</p>
+        <h2 class="text-4xl animate-fade font-bold">22 de Junio 2025</h2>
         <p class="text-xl mt-4 animate-fade">Festival Park, 132 S Grove Ave. Elgin IL, 60120</p>
         <h2 class="text-4xl animate-fade font-bold">Cuenta Regresiva</h2>
         <div id="countdown" class="text-2xl mt-4 animate-fade"></div>
@@ -159,14 +131,14 @@
         <div class="container mx-auto flex flex-col md:flex-row items-center justify-center gap-8 px-4">
             <!-- Left: Hotel Details -->
             <div class="w-full md:w-1/2 text-center md:text-left">
-                <p class="font-bold uppercase text-sm">Recommended</p>
-                <h2 class="text-5xl font-bold">Hotels and Parking</h2>
+                <h2 class="text-5xl font-bold">PLANEA TU VIAJE</h2>
+                <p class="mt-4 text-lg font-bold">Estacionamiento</p>
                 <p class="mt-4 text-lg">
-                    sdfgsdfgsdfgsdrfhsdthsthserthseth. sdrtfhsethserthserth
+                    El estacionamiento en el centro de Elgin es gratuito. Vea las ubicaciones a continuacíon.
                 </p>
-                <button class="mt-6 px-6 py-3 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600">
-                    VIEW LISTINGS ➔
-                </button>
+                <a href="https://elginil.gov/1852/Parking-in-Elgin"><button class="mt-6 px-6 py-3 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600">
+                    Ver estacionamientos ➔
+                </button></a>
             </div>
 
             <!-- Right: Image -->
