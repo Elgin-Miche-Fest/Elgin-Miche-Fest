@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elgin Miche Fest</title>
+    <link rel="icon" type="image/png" href="Miche Fest.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.7/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: white;
+        }
+        .animate-fade {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .bg-gif {
+            background: url('Miche Fest.gif') center/cover no-repeat;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Wendy+One&display=swap');
+
+        .text-glitch {
+          font-family: 'Wendy One', sans-serif;
+          font-size: 8vw;
+          white-space: nowrap;
+          overflow: hidden;
+          line-height: 100%;
+          color: #F7CA05;
+          text-shadow: 0 10px 7px rgba(0,0,0,0.4), 0 -10px 1px #fff;
+          letter-spacing: -3px;
+          text-align: center;
+
+        }
+
+        .text-glitch:hover {
+          animation: glitch .3s linear infinite;
+          cursor: pointer;
+        }
+
+        @keyframes glitch {
+          0% { transform: translate(0); }
+          20% { transform: translate(-2px, 2px); }
+          40% { transform: translate(-2px, -2px); }
+          60% { transform: translate(2px, 2px); }
+          80% { transform: translate(2px, -2px); }
+          100% { transform: translate(0); }
+}
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-black bg-opacity-80 fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <img src="Miche Fest.png" alt="Elgin Miche Fest Logo" style="width: 100px;"/>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="text-white hover:text-yellow-500">Inicio</a>
+                <a href="#" class="text-white hover:text-yellow-500">Lineup</a>
+                <a href="#" class="text-white hover:text-yellow-500">Tickets</a>
+                <a href="#" class="text-white hover:text-yellow-500">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden flex flex-col bg-black bg-opacity-90 p-4 space-y-4">
+            <a href="#" class="text-white hover:text-yellow-500">Inicio</a>
+            <a href="#" class="text-white hover:text-yellow-500">Lineup</a>
+            <a href="#" class="text-white hover:text-yellow-500">Tickets</a>
+            <a href="#" class="text-white hover:text-yellow-500">Contact</a>
+        </div>
+    </nav>
+
+    <section class="relative h-screen flex flex-col justify-center items-center text-center bg-gif mt-20">
+    	<img src="Miche Fest.png" alt="Elgin Miche Fest Logo" style="margin-bottom: 0;"/>
+        <p class="text-glitch animate-fade">22 de Junio 2025</p>
+        <p class="text-xl mt-4 animate-fade">Festival Park, 132 S Grove Ave. Elgin IL, 60120</p>
+        <h2 class="text-4xl animate-fade font-bold">Countdown</h2>
+        <div id="countdown" class="text-2xl mt-4 animate-fade"></div>
+        <button class="mt-6 px-6 py-3 bg-yellow-500 text-black font-bold rounded-lg animate-fade">Boletos</button>
+    </section>
+    
+	<section class="py-16 bg-white text-black">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-center gap-8 px-4">
+        	
+            <!-- Left: Image -->
+            <div class="w-full md:w-1/2">
+                <img src="MicheFest-2025Lineup.jpeg" alt="2025 Lineup" class="rounded-lg shadow-lg" />
+            </div>
+
+            <!-- Right: Event Details -->
+            <div class="w-full md:w-1/2 text-center md:text-left">
+                <h2 class="text-5xl font-bold">2025 Artistas</h2>
+                <h3 class="text-3xl font-bold mt-4">22 de Junio 2025</h3>
+                <p class="mt-4 text-lg">
+                    Elgin Miche Fest 2025 will reach new heights. With so much more to look forward to – we look forward to bringing the biggest and best Miche Fest yet to life!
+                </p>
+                <p class="mt-4 text-lg font-bold">Passes Are Now Live! All inventory will be first-come, first-serve.</p>
+                <button class="mt-6 px-6 py-3 bg-red-500 text-white font-bold rounded-lg hover:bg-green-600">
+                    Compra Boletos ➔
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // GSAP Animation
+        gsap.to(".animate-fade", { opacity: 1, y: 0, duration: 1, stagger: 0.3 });
+
+        // Countdown Timer
+        function startCountdown() {
+            const eventDate = new Date("June 22, 2025 00:00:00").getTime();
+            setInterval(() => {
+                const now = new Date().getTime();
+                const distance = eventDate - now;
+                let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }, 1000);
+        }
+        startCountdown();
+
+        // Mobile Menu Toggle
+        document.getElementById("menu-btn").addEventListener("click", function() {
+            let menu = document.getElementById("mobile-menu");
+            menu.classList.toggle("hidden");
+        });
+    </script>
+
+</body>
+</html>
