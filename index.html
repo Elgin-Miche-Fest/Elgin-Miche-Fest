@@ -42,6 +42,10 @@
             z-index: 1;
         }
         
+        .navbar-gradient {
+            background: linear-gradient(to bottom, #32cd32, #1e90ff); 
+        }
+        
         @media (max-width: 768px) {
             section {
                 scroll-margin-top: 100px;
@@ -75,7 +79,7 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden group flex flex-col bg-gradient-to-b from-green-500 to-blue-500 p-4 space-y-4">
+        <div id="mobile-menu" class="hidden md:hidden flex flex-col p-4 space-y-4">
             <a href="#" class="text-white hover:text-yellow-500 font-bold text-center" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">INICIO</a>
             <a href="#artistas" class="text-white hover:text-yellow-500 font-bold text-center" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">ARTISTAS</a>
             <a href="#boletos" class="text-white hover:text-yellow-500 font-bold text-center" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">BOLETOS</a>
@@ -292,9 +296,7 @@
             menu.classList.toggle("hidden");
 
             // Toggle the background gradient on navbar when mobile menu is visible
-            navbar.classList.toggle("bg-gradient-to-b", !menu.classList.contains("hidden"));
-            navbar.classList.toggle("from-green-500", !menu.classList.contains("hidden"));
-            navbar.classList.toggle("to-blue-500", !menu.classList.contains("hidden"));
+            navbar.classList.toggle("navbar-gradient", !menu.classList.contains("hidden"));
         });
 
         // Close the mobile menu when a link is clicked
@@ -306,7 +308,7 @@
 
                 // Hide the mobile menu and remove the background gradient
                 menu.classList.add("hidden");
-                navbar.classList.remove("bg-gradient-to-b", "from-green-500", "to-blue-500");
+                navbar.classList.remove("navbar-gradient");
             });
         });
 
