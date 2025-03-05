@@ -164,7 +164,7 @@
         <h1 class="shadow-text text-4xl md:text-4xl lg:text-5xl">22 DE JUNIO 2025</h1>
         <p class="text-xl mt-4 animate-fade font-bold" style="margin-top: 20px; margin-bottom: -10px;">Festival Park, 132 S Grove Ave,</p>
         <p class="text-xl mt-4 animate-fade font-bold">Elgin IL, 60120</p>
-        <div class="countdown-container animate-fade" style="margin-bottom: 10px; margin-top: 20px;">
+        <div class="countdown-container animate-fade" style="margin-bottom: 10px; margin-top: 30px;">
             <div class="countdown-box">
                 <div id="days">00</div>
                 <span>Días</span>
@@ -385,6 +385,15 @@
                 const now = new Date().getTime();
                 const distance = eventDate - now;
 
+                if (distance <= 0) {
+                    // If the event date has passed, set everything to 00
+                    document.getElementById("days").innerText = "00";
+                    document.getElementById("hours").innerText = "00";
+                    document.getElementById("minutes").innerText = "00";
+                    document.getElementById("seconds").innerText = "00";
+                    return; // Stop further calculations
+                }
+
                 let days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -399,7 +408,7 @@
         startCountdown();
 
         // Mobile Menu Toggle
-        document.getElementById("menu-btn").addEventListener("click", function() {
+        document.getElementById("menu-btn").addEventListener("click", function() 		{
             let menu = document.getElementById("mobile-menu");
             let navbar = document.getElementById("navbar");
 
