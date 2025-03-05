@@ -282,13 +282,18 @@
             <h2 class="text-4xl font-bold">Vendedores</h2>
         </div>
 
-        <div class="container mx-auto mt-8 flex flex-col gap-16 px-4">
-            <!-- General Information -->
-            <div class="w-full text-center">
-                <p class="mt-4 text-lg">Los vendedores interesados de comida, alcohol y pequeños negocios pueden contactar a Juan Camacho al <span class="mt-2 text-lg font-semibold text-green-600">872-395-9050</span> para participar en el festival. *Cupo limitado*</p>
-                <div class="w-full md:w-1/2 mx-auto">
-                        <img src="Vendors.png" alt="Vendors" class="rounded-lg shadow-lg w-full" />
-                    </div>
+        <div class="container mx-auto mt-8 flex flex-col md:flex-row items-center gap-16 px-4">
+            <!-- Text Section -->
+            <div class="w-full md:w-1/2 text-center md:text-left order-2 md:order-none">
+                <p class="mt-4 text-lg">
+                    Los vendedores interesados de comida, alcohol y pequeños negocios pueden contactar a Juan Camacho al 
+                    <span class="mt-2 text-lg font-semibold text-green-600">872-395-9050</span> para participar en el festival. *Cupo limitado*
+                </p>
+            </div>
+
+            <!-- Image Section -->
+            <div class="w-full md:w-1/2 order-1 md:order-none">
+                <img src="Vendors.png" alt="Vendors" class="rounded-lg shadow-lg w-full" />
             </div>
         </div>
     </section>
@@ -317,21 +322,29 @@
         </div>
     </section>
     
-    <footer class="py-16 bg-green-100 text-black">
-        <div class="container mx-auto text-center">
+    <footer class="relative py-16 text-black">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('your-background-image.jpg');"></div>
+
+        <!-- Content Container -->
+        <div class="relative container mx-auto bg-white p-10 rounded-lg shadow-lg text-center">
+            <!-- Logo Section -->
             <div class="flex justify-center items-center gap-8 mt-6">
                 <img src="Stateline-Logo.jpeg" alt="Stateline" class="h-16 md:h-24">
                 <img src="Elegante Logo.jpeg" alt="Elegante" class="h-16 md:h-24">
                 <img src="Miche Fest.png" alt="Miche Fest" class="h-16 md:h-24">
                 <img src="logos/elginlogo-3color-01.png" alt="Elgin Logo" class="h-16 md:h-24">
             </div>
-        </div>
 
-        <div class="container mx-auto text-center mt-12">
-            <p class="text-lg">¡Síguenos en Facebook!</p>
-            <a href="https://www.facebook.com/people/Michelada-Festival-Elgin/61557974267731/?mibextid=wwXIfr&rdid=g31NxjbfZf7iNNXN&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F12BVXRDuuni%2F%3Fmibextid%3DwwXIfr" target="_blank" class="inline-flex items-center gap-2 text-green-600 font-bold text-xl mt-4 hover:text-green-800">
-                Nuestra Pagina de Facebook
-            </a>
+            <!-- Facebook Section -->
+            <div class="mt-12">
+                <p class="text-lg">¡Síguenos en Facebook!</p>
+                <a href="https://www.facebook.com/people/Michelada-Festival-Elgin/61557974267731/?mibextid=wwXIfr&rdid=g31NxjbfZf7iNNXN&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F12BVXRDuuni%2F%3Fmibextid%3DwwXIfr" 
+                   target="_blank" 
+                   class="inline-flex items-center gap-2 text-green-600 font-bold text-xl mt-4 hover:text-green-800">
+                    Nuestra Página de Facebook
+                </a>
+            </div>
         </div>
     </footer>
 
