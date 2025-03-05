@@ -227,7 +227,7 @@
 
         <div class="container mx-auto mt-8 space-y-6">
             <!-- Pass Item -->
-            <div class="bg-white shadow-lg p-6 rounded-lg flex flex-col md:flex-row items-center justify-between">
+            <div id="preventa-section" class="bg-white shadow-lg p-6 rounded-lg flex flex-col md:flex-row items-center justify-between">
                 <div class="text-center md:text-left">
                     <p class="text-purple-600 font-bold uppercase text-sm">Precios de Preventa Hasta el 21 de Mayo</p>
                     <h3 class="text-3xl font-bold">Admisión General</h3>
@@ -235,9 +235,9 @@
                 </div>
                 <button class="mt-4 md:mt-0 md:ml-auto px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700">Comprar Boletos</button>
             </div>
-            
+	
             <!-- Pass Item -->
-            <div class="bg-white shadow-lg p-6 rounded-lg flex flex-col md:flex-row items-center justify-between">
+            <div id="regular-section" class="bg-white shadow-lg p-6 rounded-lg flex flex-col md:flex-row items-center justify-between">
                 <div class="text-center md:text-left">
                     <p class="text-purple-600 font-bold uppercase text-sm">DISPONIBLE DEL 22 DE MAYO AL 21 DE JUNIO</p>
                     <h3 class="text-3xl font-bold">Admisión General</h3>
@@ -259,11 +259,11 @@
             <!-- VIP Pass Item -->
             <div class="bg-white shadow-lg p-6 rounded-lg flex flex-col md:flex-row items-center justify-between">
                 <div class="text-center md:text-left">
-                    <p class="text-purple-600 font-bold uppercase text-sm">Disponibilidad no garantizada</p>
+                    <p class="text-purple-600 font-bold uppercase text-sm">Disponibilidad no garantizada el 22 de junio</p>
                     <h3 class="text-3xl font-bold">Día del Evento</h3>
                     <p class="text-2xl font-bold mt-2">$40</p>
                 </div>
-                <button id="dynamicButton" class="mt-4 md:mt-0 md:ml-auto px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700">Disponible el 22 de junio</button>
+                <button class="mt-4 md:mt-0 md:ml-auto px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700">Comprar Boletos</button>
             </div>
         </div>
     </section>
@@ -455,18 +455,22 @@
         });
         
         document.addEventListener("DOMContentLoaded", function () {
-        const button = document.getElementById("dynamicButton");
-        const targetDate = new Date("June 22, 2025 00:00:00").getTime();
-        const now = new Date().getTime();
+          const expirationDate = new Date("May 22, 2025 00:00:00"); 
+          const today = new Date();
 
-        if (now >= targetDate) {
-            button.innerHTML = "Comprar Boletos"; // Change button text
-            button.style.cursor = "pointer"; // Indicate it's clickable
-            button.onclick = function () {
-                window.location.href = "https://example.com";
-            };
-        }
-    });
+          if (today >= expirationDate) {
+            document.getElementById("preventa-section").style.display = "none";
+          }
+        });
+        
+        document.addEventListener("DOMContentLoaded", function () {
+          const expirationDate = new Date("June 22, 2025 00:00:00"); 
+          const today = new Date();
+
+          if (today >= expirationDate) {
+            document.getElementById("regular-section").style.display = "none";
+          }
+        });
     </script>
 </body>
 </html>
