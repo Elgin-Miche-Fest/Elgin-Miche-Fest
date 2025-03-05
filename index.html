@@ -46,6 +46,22 @@
             background: linear-gradient(to bottom, #32cd32, #1e90ff); 
         }
         
+        .date-font {
+          font-family: "Inter", sans-serif;
+          color: #f5acc1; /* mix(#fff, #e91e63, 85%) evaluates to #f5acc1 */
+          font-size: 50px;
+          font-weight: 900;
+          text-shadow: 
+            -0.0075em 0.0075em 0 #f1b3d2, /* mix(#fff, #e91e63, 94%) */
+            0.005em 0.005em 0 #f3a0b7, /* mix(#fff, #e91e63, 60%) */
+            0.01em 0.01em 0 #f3a3bb, /* mix(#fff, #e91e63, 62%) */
+            0.015em 0.015em 0 #f4a4bf, /* mix(#fff, #e91e63, 64%) */
+            0.02em 0.02em 0 #f5a5c3, /* mix(#fff, #e91e63, 66%) */
+            0.025em 0.025em 0 #f5a7c6, /* mix(#fff, #e91e63, 68%) */
+            0.03em 0.03em 0 #f6a9ca, /* mix(#fff, #e91e63, 70%) */
+            0.035em 0.035em 0 #f7aada; /* mix(#fff, #e91e63, 72%) */
+        }
+        
         @media (max-width: 768px) {
             section {
                 scroll-margin-top: 100px;
@@ -107,7 +123,7 @@
 
     <section class="relative z-10 h-screen flex flex-col justify-center items-center text-center bg-gif">
         <img src="Miche Fest.png" alt="Elgin Miche Fest Logo" class="w-3/4 md:w-1/3 lg:w-1/4" />
-        <h2 class="text-4xl animate-fade font-bold">22 de Junio 2025</h2>
+        <h1 class="date-font">22 de Junio 2025</h1> 
         <p class="text-xl mt-4 animate-fade" style="margin-bottom: 0;">Festival Park, 132 S Grove Ave.</p>
         <p class="text-xl mt-4 animate-fade">Elgin IL, 60120</p>
         <h2 class="text-4xl animate-fade font-bold" style="margin-bottom: 0;">Cuenta Regresiva</h2>
