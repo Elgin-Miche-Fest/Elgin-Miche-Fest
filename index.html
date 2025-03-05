@@ -253,7 +253,7 @@
                     <h3 class="text-3xl font-bold">Día del Evento</h3>
                     <p class="text-2xl font-bold mt-2">$40</p>
                 </div>
-                <button class="mt-4 md:mt-0 md:ml-auto px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700">Disponible el 22 de junio</button>
+                <button id="dynamicButton" class="mt-4 md:mt-0 md:ml-auto px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700">Disponible el 22 de junio</button>
             </div>
         </div>
     </section>
@@ -353,7 +353,7 @@
     
     <footer class="relative py-16 text-black">
         <!-- Background Image -->
-        <div class="absolute inset-0 bg-cover bg-center opacity-90" style="background-image: url('Footer3.jpeg');"></div>
+        <div class="absolute inset-0 bg-cover bg-center opacity-90" style="background-image: url('Footer4.jpeg');"></div>
 
         <!-- Content Container (Auto-Sizing to Fit Images) -->
         <div class="relative w-fit max-w-[90%] mx-auto bg-white px-6 py-8 rounded-lg shadow-lg text-center">
@@ -443,6 +443,20 @@
                 navbar.classList.remove("bg-gray-800", "bg-opacity-90");
             }
         });
+        
+        document.addEventListener("DOMContentLoaded", function () {
+        const button = document.getElementById("dynamicButton");
+        const targetDate = new Date("June 22, 2025 00:00:00").getTime();
+        const now = new Date().getTime();
+
+        if (now >= targetDate) {
+            button.innerHTML = "Comprar Boletos"; // Change button text
+            button.style.cursor = "pointer"; // Indicate it's clickable
+            button.onclick = function () {
+                window.location.href = "https://example.com";
+            };
+        }
+    });
     </script>
 </body>
 </html>
