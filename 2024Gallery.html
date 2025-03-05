@@ -13,58 +13,100 @@
   <!-- Navigation Bar -->
   <nav id="navbar" class="bg-transparent fixed top-0 left-0 w-full z-50 transition-all duration-300">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <!-- Logo -->
       <a href="https://elginmichefestival.com/"><img src="Miche Fest.png" alt="Elgin Miche Fest Logo" style="width: 75px;" /></a>
-
-      <!-- Desktop Menu -->
       <div class="space-x-6">
         <a href="https://elginmichefestival.com/" class="text-black hover:text-blue-500 font-bold" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">CASA</a>
       </div>
     </div>
   </nav>
 
-  <!-- Your Gallery Section Below -->
-  <header class="bg-green-100 text-black py-6 text-center mt-24">
+  <!-- Header -->
+  <header class="bg-blue-100 text-black py-6 text-center mt-24">
     <h1 class="text-3xl font-bold">2024 Elgin Miche Festival</h1>
     <p class="mt-2 text-lg">sdfgsdfgsdgfsdfg</p>
   </header>
 
+  <!-- Gallery Section -->
   <section class="max-w-screen-xl mx-auto p-6">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      <!-- Add your images here -->
+      <!-- Images -->
       <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
-        <img src="Festival park.png" alt="Gallery Image 1" class="w-full h-64 object-cover">
+        <img src="Festival park.png" alt="Gallery Image 1" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
       </div>
       <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
-        <img src="Festival park.png" alt="Gallery Image 1" class="w-full h-64 object-cover">
+        <img src="Festival park.png" alt="Gallery Image 2" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
       </div>
       <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
-        <img src="Festival park.png" alt="Gallery Image 1" class="w-full h-64 object-cover">
+        <img src="Festival park.png" alt="Gallery Image 3" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
       </div>
       <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
-        <img src="Festival park.png" alt="Gallery Image 1" class="w-full h-64 object-cover">
+        <img src="Festival park.png" alt="Gallery Image 3" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
       </div>
       <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
-        <img src="Festival park.png" alt="Gallery Image 1" class="w-full h-64 object-cover">
+        <img src="Festival park.png" alt="Gallery Image 3" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
       </div>
       <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
-        <img src="Festival park.png" alt="Gallery Image 1" class="w-full h-64 object-cover">
+        <img src="Festival park.png" alt="Gallery Image 3" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
       </div>
       <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
-        <img src="Festival park.png" alt="Gallery Image 1" class="w-full h-64 object-cover">
+        <img src="Festival park.png" alt="Gallery Image 3" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
       </div>
       <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
-        <img src="Festival park.png" alt="Gallery Image 1" class="w-full h-64 object-cover">
+        <img src="Festival park.png" alt="Gallery Image 3" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
       </div>
       <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
-        <img src="Festival park.png" alt="Gallery Image 1" class="w-full h-64 object-cover">
+        <img src="Festival park.png" alt="Gallery Image 3" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
+        <img src="Festival park.png" alt="Gallery Image 3" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
+      </div>
+      <div class="overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
+        <img src="Festival park.png" alt="Gallery Image 3" class="w-full h-64 object-cover cursor-pointer" onclick="openModal(this)">
       </div>
     </div>
   </section>
 
-  <footer class="bg-green-100 text-black py-6 text-center">
+  <!-- Full-Screen Modal -->
+  <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-[9999]">
+    <span id="closeModalBtn" class="absolute top-5 right-8 text-white text-4xl cursor-pointer">&times;</span>
+    <img id="modalImage" class="max-w-full max-h-full rounded-lg shadow-lg">
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-blue-100 text-black py-6 text-center">
     <p>&copy; Elgin Miche Festival. All rights reserved.</p>
   </footer>
+
+  <!-- JavaScript for Modal -->
+  <script>
+    function openModal(imgElement) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      modalImg.src = imgElement.src;
+      modal.classList.remove("hidden");
+    }
+
+    function closeModal() {
+      document.getElementById("imageModal").classList.add("hidden");
+    }
+
+    // Ensure close button works
+    document.getElementById("closeModalBtn").addEventListener("click", closeModal);
+
+    // Close modal when clicking outside the image
+    document.getElementById("imageModal").addEventListener("click", function(event) {
+      if (event.target === this) {
+        closeModal();
+      }
+    });
+
+    // Close modal when pressing the ESC key
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
+  </script>
 
 </body>
 </html>
