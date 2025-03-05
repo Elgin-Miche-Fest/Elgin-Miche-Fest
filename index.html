@@ -72,6 +72,34 @@
             0 9px 9px rgba(55, 46, 46, 0.3);
         }
         
+        .countdown-container {
+          display: flex;
+          gap: 10px;
+        }
+
+        .countdown-box {
+          background: white;
+          color: #002c66;
+          font-size: 36px;
+          font-weight: bold;
+          width: 90px;
+          height: 100px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          border-radius: 5px;
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+          position: relative;
+        }
+
+        .countdown-box span {
+          font-size: 14px;
+          font-weight: normal;
+          position: absolute;
+          bottom: 5px;
+        }
+        
         @media (max-width: 768px) {
             section {
                 scroll-margin-top: 100px;
@@ -137,7 +165,24 @@
         <p class="text-xl mt-4 animate-fade font-bold" style="margin-top: 20px; margin-bottom: -10px;">Festival Park, 132 S Grove Ave,</p>
         <p class="text-xl mt-4 animate-fade font-bold">Elgin IL, 60120</p>
         <h2 class="text-xl mt-4 animate-fade" style="margin-top: 30px;">Cuenta Regresiva</h2>
-        <div id="countdown" class="text-xl mt-4 animate-fade" style="margin-bottom: 30px;"></div>
+        <div class="countdown-container">
+            <div class="countdown-box">
+                <div id="days">00</div>
+                <span>Días</span>
+            </div>
+            <div class="countdown-box">
+                <div id="hours">00</div>
+                <span>Horas</span>
+            </div>
+            <div class="countdown-box">
+                <div id="minutes">00</div>
+                <span>Minutos</span>
+            </div>
+            <div class="countdown-box">
+                <div id="seconds">00</div>
+                <span>Segundos</span>
+            </div>
+        </div>
         <a href="#boletos" class="relative z-20">
           <button class="mt-4 md:mt-0 px-12 py-5 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 animate-fade">
             COMPRAR BOLETOS ➔
@@ -340,11 +385,16 @@
             setInterval(() => {
                 const now = new Date().getTime();
                 const distance = eventDate - now;
+
                 let days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+                document.getElementById("days").innerText = String(days).padStart(2, '0');
+                document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+                document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+                document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
             }, 1000);
         }
         startCountdown();
