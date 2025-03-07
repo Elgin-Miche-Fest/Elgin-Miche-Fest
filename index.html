@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.7/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script><!-- Alpine.js (For popup) -->
     <style>
     	html {
             scroll-behavior: smooth;
@@ -128,7 +129,7 @@
             </div>
 
             <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-6">
+            <div class="hidden md:flex space-x-6 z-50">
                 <a href="#" class="text-white hover:text-yellow-500 font-bold" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">INICIO</a>
                 <a href="#artistas" class="text-white hover:text-yellow-500 font-bold" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">ARTISTAS</a>
                 <a href="#boletos" class="text-white hover:text-yellow-500 font-bold" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">BOLETOS</a>
@@ -313,12 +314,41 @@
             </div>
 
             <!-- Text Section -->
-            <div class="w-full md:w-3/4 text-center">
-                <p class="mt-4 text-lg">
-                    Los vendedores interesados de comida, alcohol y pequeños negocios pueden contactar a Juan Camacho al 
-                    <span class="mt-2 text-lg font-semibold text-purple-600">872-395-9050</span> para participar en el festival. *Cupo limitado*
-                </p>
-            </div>
+            <div x-data="{ open: false }" class="relative inline-block">
+              <!-- Button to Open Popup -->
+              <button @click="open = !open" 
+                  class="mt-4 md:mt-0 md:ml-auto px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700">
+                  Info Vendedores
+              </button>
+
+              <!-- Tooltip Popup (Positioned Above the Button) -->
+              <div x-show="open" 
+                  x-transition:enter="transition ease-out duration-200 transform opacity-0 scale-95"
+                  x-transition:enter-start="opacity-0 scale-95"
+                  x-transition:enter-end="opacity-100 scale-100"
+                  x-transition:leave="transition ease-in duration-150 transform opacity-100 scale-100"
+                  x-transition:leave-start="opacity-100 scale-100"
+                  x-transition:leave-end="opacity-0 scale-95"
+                  class="absolute left-1/2 bottom-full mb-2 w-72 bg-white p-4 rounded-lg shadow-lg border transform -translate-x-1/2 z-40">
+
+                  <!-- Tooltip Arrow (Now Pointing Down) -->
+                  <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white transform rotate-45 border-r border-b"></div>
+
+                  <p class="text-sm text-gray-800">
+                      Los vendedores interesados de comida, alcohol y pequeños negocios pueden contactar a Juan Camacho al 
+                      <span class="font-semibold text-purple-600">872-395-9050</span> para participar en el festival.
+                  </p>
+                  <p class="text-sm text-gray-800 mt-2">
+                      *Cupo limitado*
+                  </p>
+
+                  <!-- Close Button (Centered) -->
+                  <button @click="open = false" 
+                      class="mt-2 px-6 py-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 text-sm mx-auto block">
+                      Cerrar
+                  </button>
+              </div>
+          </div>
         </div>
     </section>
     
