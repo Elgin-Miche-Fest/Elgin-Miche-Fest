@@ -8,6 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.7/ScrollTrigger.min.js"></script>
+    <!-- Alpine.js (For popup) -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <style>
     	html {
             scroll-behavior: smooth;
@@ -313,12 +315,29 @@
             </div>
 
             <!-- Text Section -->
-            <div class="w-full md:w-3/4 text-center">
-                <p class="mt-4 text-lg">
-                    Los vendedores interesados de comida, alcohol y pequeños negocios pueden contactar a Juan Camacho al 
-                    <span class="mt-2 text-lg font-semibold text-purple-600">872-395-9050</span> para participar en el festival. *Cupo limitado*
-                </p>
-            </div>
+            <div x-data="{ open: false }" 
+               x-init="$watch('open', value => { document.body.classList.toggle('overflow-hidden', value) })" 
+               class="w-full md:w-3/4 text-center">
+
+              <!-- Button to Open Popup -->
+              <button @click="open = true" class="mt-4 md:mt-0 md:ml-auto px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700">
+                  Más Información
+              </button>
+
+              <!-- Popup (Hidden by Default) -->
+              <div x-show="open" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
+                  <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg relative">
+                      <p class="text-lg">
+                          Los vendedores interesados de comida, alcohol y pequeños negocios pueden contactar a Juan Camacho al 
+                          <span class="mt-2 text-lg font-semibold text-purple-600">872-395-9050</span> para participar en el festival. *Cupo limitado*
+                      </p>
+                      <!-- Close Button (Fixed Positioning) -->
+                      <button @click="open = false" class="mt-4 px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700">
+                          Cerrar
+                      </button>
+                  </div>
+              </div>
+          </div>
         </div>
     </section>
     
