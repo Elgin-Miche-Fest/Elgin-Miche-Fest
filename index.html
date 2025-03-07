@@ -313,15 +313,24 @@
             </div>
 
             <!-- Text Section -->
-            <div class="container mx-auto text-center relative group">
-                <button class="mt-4 md:mt-0 md:ml-auto px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 relative">
-                    Info Vendedores
-                    <span class="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 w-64 px-4 py-2 text-sm text-white bg-gray-800 rounded opacity-0 transition-opacity group-hover:opacity-100 group-focus:opacity-100">
-                        Los vendedores interesados de comida, alcohol y pequeños negocios pueden contactar a Juan Camacho al 
-                        <span class="font-semibold text-purple-300">872-395-9050</span> para participar en el festival. *Cupo limitado*
-                    </span>
-                </button>
-            </div>
+            <div class="container mx-auto text-center relative">
+              <button id="infoButton" class="mt-4 md:mt-0 md:ml-auto px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 relative">
+                  Info Vendedores
+              </button>
+
+              <div id="tooltip" class="absolute left-1/2 transform -translate-x-1/2 bottom-full mb-2 w-64 px-4 py-6 text-sm text-white bg-gray-800 rounded shadow-lg opacity-0 invisible transition-opacity duration-300">
+                  <!-- Close button positioned separately at the top-right -->
+                  <div class="absolute top-2 right-2">
+                      <button id="closeTooltip" class="text-white text-2xl font-bold hover:text-gray-300">&times;</button>
+                  </div>
+
+                  <!-- Main tooltip text below the close button -->
+                  <div class="mt-6 text-center">
+                      Los vendedores interesados de comida, alcohol y pequeños negocios pueden contactar a Juan Camacho al 
+                      <span class="font-semibold text-purple-300">872-395-9050</span> para participar en el festival. *Cupo limitado*
+                  </div>
+              </div>
+          </div>
         </div>
     </section>
     
@@ -461,6 +470,28 @@
                 navbar.classList.add("bg-gray-800", "bg-opacity-90");
             } else {
                 navbar.classList.remove("bg-gray-800", "bg-opacity-90");
+            }
+        });
+        
+        //Tooltip for vendors:
+		const infoButton = document.getElementById("infoButton");
+        const tooltip = document.getElementById("tooltip");
+        const closeTooltip = document.getElementById("closeTooltip");
+
+        infoButton.addEventListener("click", () => {
+            tooltip.classList.toggle("opacity-100");
+            tooltip.classList.toggle("invisible");
+        });
+
+        closeTooltip.addEventListener("click", () => {
+            tooltip.classList.add("opacity-0");
+            tooltip.classList.add("invisible");
+        });
+
+        // Close tooltip if clicked outside
+        document.addEventListener("click", (event) => {
+            if (!infoButton.contains(event.target) && !tooltip.contains(event.target)) {
+                tooltip.classList.add("opacity-0", "invisible");
             }
         });
         
