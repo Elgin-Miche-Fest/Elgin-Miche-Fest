@@ -430,7 +430,9 @@
 
         // Countdown Timer
         function startCountdown() {
-            const eventDate = new Date("June 22, 2025 00:00:00").getTime();
+            // Set the event date in Central Time (CST/CDT)
+            const eventDate = new Date("June 22, 2025 00:00:00 GMT-0500").getTime(); // Central Standard Time (CST)
+
             setInterval(() => {
                 const now = new Date().getTime();
                 const distance = eventDate - now;
