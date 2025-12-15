@@ -358,8 +358,7 @@ summary {
 }
 
 summary::after {
-  content: "\25B8"; /* right-pointing arrow */
-  font-size: x-large;
+  content: "➤";
   display: inline-block;
   transition: transform 0.3s ease;
 }
